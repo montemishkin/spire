@@ -6,6 +6,10 @@
   "plugins": [
     "react"
   ],
+  "globals": {
+    "ga": false,
+    "process": false
+  },
   "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": false,

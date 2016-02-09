@@ -28,7 +28,16 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
+    "redux-logger": "^2.5.0",
     "vinyl-named": "^1.1.0",
     "webpack-stream": "^3.1.0"
+  },
+  "dependencies": {
+    "radium": "^0.16.5",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "redux": "^3.3.1",
+    "redux-responsive": "^1.0.2"
   }
 }

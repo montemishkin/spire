@@ -3,16 +3,19 @@
     padding: 0;
 }
 
-html, body, #app, #canvas {
+html, body, #wrapper, #canvas {
     min-height: 100%;
     font-family: monospace;
     background-color: white;
 }
 
-#app {
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+#wrapper {
+    background-color: black;
+    height: 100%;
+}
+
+#controls {
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }

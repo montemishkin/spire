@@ -6,15 +6,16 @@ var projectPaths = require('./projectPaths')
 
 // default to using development configuration
 var devtool = 'source-map'
-var plugins = []
+var plugins = [
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
+]
 // if we are in production environment
 if (process.env.NODE_ENV === 'production') {
     // use production configuration instead
     devtool = ''
     plugins.push(
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-        }),
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin()
