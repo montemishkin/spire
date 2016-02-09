@@ -1,3 +1,7 @@
+// local imports
+import random from 'util/random'
+import {randomColor, toCSS} from 'util/color'
+
 // ---------------------------------------------
 // Initialize State
 // ---------------------------------------------
@@ -25,10 +29,7 @@ randomize()
 // Run Scripts
 // ------------------------------------------------
 
-document.onmousemove = ({
-    x,
-    y,
-}) => {
+document.onmousemove = ({x, y}) => {
     state.mouse = {
         x,
         y,
@@ -144,37 +145,4 @@ function iterate() {
             c,
         }
     })
-}
-
-
-// -----------------------------------
-// Utility Functions
-// -----------------------------------
-
-function map(x, xMin, xMax, yMin, yMax) {
-    return (((yMax - yMin) / (xMax - xMin)) * (x - xMin)) + yMin
-}
-
-
-function mod(n, m) {
-    return n - (m * Math.floor(n / m))
-}
-
-
-function random(min, max) {
-    return ((max - min) * Math.random()) + min
-}
-
-
-function randomColor() {
-    return {
-        h: random(0, 360),
-        s: random(0, 100),
-        l: random(0, 100),
-    }
-}
-
-
-function toCSS(color) {
-    return `hsl(${color.h},${color.s}%,${color.l}%)`
 }
