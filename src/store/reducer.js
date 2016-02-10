@@ -2,6 +2,8 @@
 import {combineReducers} from 'redux'
 import {createResponsiveStateReducer} from 'redux-responsive'
 import {mouseReducer} from 'redux-mouse'
+// local imports
+import game from 'store/ducks/game'
 
 
 export default combineReducers({
@@ -10,4 +12,5 @@ export default combineReducers({
         small: 400,
     }),
     mouse: mouseReducer,
+    game,
 })

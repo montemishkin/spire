@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 // local imports
 import {createStore} from 'store'
-import './runCanvasThingy'
+import runCanvasThingy from './runCanvasThingy'
 
 const App = () => <span>hey</span>
 
@@ -42,6 +42,4 @@ ReactDOM.render(
 )
 
 
-// runCanvasThingy({
-//     store,
-// })
+runCanvasThingy(store, document.getElementById('canvas'))
