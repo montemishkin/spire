@@ -1,6 +1,7 @@
 // third party imports
 import {combineReducers} from 'redux'
 import {createResponsiveStateReducer} from 'redux-responsive'
+import {mouseReducer} from 'redux-mouse'
 
 
 export default combineReducers({
@@ -8,4 +9,5 @@ export default combineReducers({
         medium: 700,
         small: 400,
     }),
+    mouse: mouseReducer,
 })

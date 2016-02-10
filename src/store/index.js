@@ -1,6 +1,7 @@
 // third party imports
 import {createStore as create_store, applyMiddleware, compose} from 'redux'
 import {responsiveStoreEnhancer} from 'redux-responsive'
+import {mouseStoreEnhancer} from 'redux-mouse'
 import createLogger from 'redux-logger'
 // local imports
 import reducer from './reducer'
@@ -21,6 +22,7 @@ export function createStore(initialData) {
         reducer,
         initialData,
         compose(
+            mouseStoreEnhancer,
             responsiveStoreEnhancer,
             applyMiddleware(...middlewares)
         )
