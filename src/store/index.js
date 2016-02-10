@@ -13,6 +13,8 @@ if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
     middlewares.push(createLogger({
         // always collapse console groups
         collapsed: () => true,
+        // filter out all actions except those defined within this project
+        predicate: (_, {type}) => type.startsWith('dots/')
     }))
 }
 
