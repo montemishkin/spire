@@ -1,6 +1,6 @@
 // local imports
-import draw from './draw'
-import iterate from './iterate'
+import draw from 'canvas/draw'
+import iterate from 'canvas/iterate'
 
 
 export default (store, canvas) => {

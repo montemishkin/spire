@@ -6,9 +6,8 @@ import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 // local imports
 import {createStore} from 'store'
-import runCanvasThingy from './runCanvasThingy'
-
-const App = () => <span>hey</span>
+import Controller from 'components/Controller'
+import runCanvasThingy from 'canvas'
 
 
 if (process.env.NODE_ENV === 'production') {
@@ -36,7 +35,7 @@ const store = createStore()
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Controller />
     </Provider>,
     document.getElementById('controls')
 )
