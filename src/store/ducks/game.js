@@ -3,13 +3,31 @@ import {randomColor} from 'util/color'
 import random from 'util/random'
 
 
-export const REPLACE_DOTS = 'dots/game/REPLACE_DOTS'
+// Action Types
 
+export const REPLACE_DOTS = 'dots/game/REPLACE_DOTS'
+export const PLAY = 'dots/game/PLAY'
+export const PAUSE = 'dots/game/PAUSE'
+
+
+// Action Creators
 
 export function replaceDots(dots) {
     return {type: REPLACE_DOTS, dots}
 }
 
+
+export function play() {
+    return {type: PLAY}
+}
+
+
+export function pause() {
+    return {type: PAUSE}
+}
+
+
+// Reducer
 
 const initialState = {
     isPaused: false,
@@ -34,6 +52,16 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 dots: action.dots,
+            }
+        case PAUSE:
+            return {
+                ...state,
+                isPaused: true,
+            }
+        case PLAY:
+            return {
+                ...state,
+                isPaused: false,
             }
         default:
             return state

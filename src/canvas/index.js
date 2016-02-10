@@ -16,7 +16,7 @@ export default (store, canvas) => {
 function animate(store, context) {
     const state = store.getState()
 
-    if (!state.isPaused) {
+    if (!state.game.isPaused) {
         draw(state, context)
         iterate(state, store.dispatch)
     }
