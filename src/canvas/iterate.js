@@ -1,5 +1,6 @@
 // local imports
 import {setDots} from 'store/ducks/game/dots/items'
+import {add, scale, flipX, flipY} from 'util/vector2'
 
 
 export default (state, dispatch) => {
@@ -15,19 +16,24 @@ function movedDots({game, browser}) {
 
     return [
         ...dots.slice(0, numDots).map(dot => {
-            const vX = dot.p[0] < 0 || dot.p[0] > width ? -dot.v[0] : dot.v[0]
-            const vY = dot.p[1] < 0 || dot.p[1] > height ? -dot.v[1] : dot.v[1]
-            const pX = dot.p[0] + (vX * dt)
-            const pY = dot.p[1] + (vY * dt)
+            let v = dot.v
+            v = dot.p[0] < 0 || dot.p[0] > width
+                ? flipX(v)
+                : v
+            v = dot.p[1] < 0 || dot.p[1] > height
+                ? flipY(v)
+                : v
+
+            const p = add(dot.p, scale(dt, v))
             const c = {
                 ...dot.c,
-                h: dot.c.h + 10,
+                h: dot.c.h + 3,
             }
 
             return {
                 ...dot,
-                p: [pX, pY],
-                v: [vX, vY],
+                p,
+                v,
                 c,
             }
         }),
