@@ -4,8 +4,19 @@ import {combineReducers} from 'redux'
 import isPaused from './isPaused'
 import dt from './dt'
 import background from './background'
-import dots from './dots'
+import dots, {randomizeDots} from './dots'
 
+
+// Action Creators
+
+export function restart() {
+    return (dispatch) => {
+        dispatch(randomizeDots())
+    }
+}
+
+
+// Reducer
 
 export default combineReducers({
     isPaused,

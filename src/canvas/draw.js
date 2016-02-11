@@ -18,9 +18,10 @@ function clearBackground({game, browser}, context) {
 
 
 function drawDots({game}, context) {
-    const {dots} = game
+    const dots = game.dots.items
+    const numDots = game.dots.num.value
 
-    dots.items.slice(0, dots.num).forEach(({p, r, c}) => {
+    dots.slice(0, numDots).forEach(({p, r, c}) => {
         context.fillStyle = toCSS(c)
         context.beginPath()
         context.arc(...p, r, 0, 2 * Math.PI)

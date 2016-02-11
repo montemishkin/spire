@@ -4,17 +4,18 @@ import radium from 'radium'
 import {connect} from 'react-redux'
 // local imports
 import styles from './styles'
+import {restart} from 'store/ducks/game'
 import {play, pause} from 'store/ducks/game/isPaused'
 import {setDT} from 'store/ducks/game/dt'
-import {setNumDots} from 'store/ducks/game/dots'
+import {setNumDots} from 'store/ducks/game/dots/num'
 import Checkbox from 'components/Checkbox'
 import Slider from 'components/Slider'
+import Button from 'components/Button'
 
 
 function Controller({
     isPaused,
     dt,
-    maxDots,
     numDots,
     dispatch,
     style,
@@ -25,6 +26,11 @@ function Controller({
             {...unusedProps}
             style={[styles.container, style]}
         >
+            <Button
+                onClick={() => dispatch(restart())}
+            >
+                restart
+            </Button>
             <Checkbox
                 name='isPaused'
                 value={isPaused}
@@ -39,11 +45,8 @@ function Controller({
                 onChange={(event) => dispatch(setDT(event.target.value))}
             />
             <Slider
+                {...numDots}
                 name='numDots'
-                min={0}
-                max={maxDots}
-                value={numDots}
-                step={1}
                 onChange={(event) => dispatch(setNumDots(event.target.value))}
             />
         </div>
@@ -55,7 +58,6 @@ function mapStateToProps(state) {
     return {
         isPaused: state.game.isPaused,
         dt: state.game.dt,
-        maxDots: state.game.dots.max,
         numDots: state.game.dots.num,
     }
 }

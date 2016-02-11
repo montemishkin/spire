@@ -1,11 +1,14 @@
 // local imports
 import draw from 'canvas/draw'
 import iterate from 'canvas/iterate'
+import {restart} from 'store/ducks/game'
 
 
 export default (store, canvas) => {
     resize(canvas)
     window.addEventListener('resize', resize.bind(null, canvas))
+
+    store.dispatch(restart())
 
     const context = canvas.getContext('2d')
 
