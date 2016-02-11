@@ -5,8 +5,8 @@ import random from 'util/random'
 
 // Action Types
 
-export const REPLACE_DOTS = 'dots/game/REPLACE_DOTS'
-export const SET_NUM_DOTS = 'dots/game/SET_NUM_DOTS'
+export const REPLACE_DOTS = 'spire/game/REPLACE_DOTS'
+export const SET_NUM_DOTS = 'spire/game/SET_NUM_DOTS'
 
 
 // Action Creators

@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
         // always collapse console groups
         collapsed: () => true,
         // filter out all actions except those defined within this project
-        predicate: (_, {type}) => type.startsWith('dots/'),
+        predicate: (_, {type}) => type.startsWith('spire/'),
     }))
 }
 

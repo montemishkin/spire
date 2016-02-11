@@ -1,6 +1,6 @@
 // Action Types
 
-export const SET_DT = 'dots/game/SET_DT'
+export const SET_DT = 'spire/game/SET_DT'
 
 
 // Action Creators
