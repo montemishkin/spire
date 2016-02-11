@@ -14,6 +14,10 @@ html, body, #wrapper, #canvas {
     height: 100%;
 }
 
+#canvas {
+    display: block;
+}
+
 #controls {
     position: absolute;
     top: 0px;
