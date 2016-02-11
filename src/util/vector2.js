@@ -8,6 +8,25 @@ export function scale(scalar, [x, y]) {
 }
 
 
+export function magnitude([x, y]) {
+    return Math.sqrt((x * x) + (y * y))
+}
+
+
+export function magnitudeSquared([x, y]) {
+    return (x * x) + (y * y)
+}
+
+
+export function normalize([x, y]) {
+    const mag = Math.sqrt((x * x) + (y * y))
+
+    return mag === 0
+        ? [x, y]
+        : [x / mag, y / mag]
+}
+
+
 export function add([x1, y1], [x2, y2]) {
     return [x1 + x2, y1 + y2]
 }

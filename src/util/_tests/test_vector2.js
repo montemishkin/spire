@@ -28,6 +28,36 @@ describe('vector2', function () {
     })
 
 
+    describe('magnitude', function () {
+        it('seems to work fine', function () {
+            const actual = vector2.magnitude([3, 4])
+            const expected = 5
+
+            assert.equal(actual, expected)
+        })
+    })
+
+
+    describe('magnitudeSquared', function () {
+        it('seems to work fine', function () {
+            const actual = vector2.magnitudeSquared([3, 4])
+            const expected = 25
+
+            assert.equal(actual, expected)
+        })
+    })
+
+
+    describe('normalize', function () {
+        it('seems to work fine', function () {
+            const actual = vector2.normalize([7, 7])
+            const expected = [Math.SQRT1_2, Math.SQRT1_2]
+
+            assert.deepEqual(actual, expected)
+        })
+    })
+
+
     describe('add', function () {
         it('seems to work fine', function () {
             const actual = vector2.add([20, -1], [-15, 7.5])
