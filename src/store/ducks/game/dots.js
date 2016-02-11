@@ -6,8 +6,7 @@ import random from 'util/random'
 // Action Types
 
 export const REPLACE_DOTS = 'dots/game/REPLACE_DOTS'
-export const PLAY = 'dots/game/PLAY'
-export const PAUSE = 'dots/game/PAUSE'
+export const SET_NUM_DOTS = 'dots/game/SET_NUM_DOTS'
 
 
 // Action Creators
@@ -17,27 +16,20 @@ export function replaceDots(dots) {
 }
 
 
-export function play() {
-    return {type: PLAY}
-}
-
-
-export function pause() {
-    return {type: PAUSE}
+export function setNumDots(value) {
+    return {type: SET_NUM_DOTS, value}
 }
 
 
 // Reducer
 
 const initialState = {
-    isPaused: false,
-    dt: 0.1,
-    background: randomColor(),
-    numDots: 200,
-    dots: [],
+    max: 1000,
+    num: 200,
+    items: [],
 }
-for (var i = 0; i < initialState.numDots; i++) {
-    initialState.dots.push({
+for (var i = 0; i < initialState.max; i++) {
+    initialState.items.push({
         p: [0, 0],
         v: [random(0, 30), random(0, 30)],
         r: 10,
@@ -51,17 +43,12 @@ export default (state = initialState, action) => {
         case REPLACE_DOTS:
             return {
                 ...state,
-                dots: action.dots,
+                items: action.dots,
             }
-        case PAUSE:
+        case SET_NUM_DOTS:
             return {
                 ...state,
-                isPaused: true,
-            }
-        case PLAY:
-            return {
-                ...state,
-                isPaused: false,
+                num: action.value > state.max ? state.max : action.value,
             }
         default:
             return state
