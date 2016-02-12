@@ -41,16 +41,11 @@ const movedDots = createDotMapper(state => {
             : v
 
         const p = add(dot.p, scale(dt, v))
-        const c = {
-            ...dot.c,
-            h: dot.c.h + 3,
-        }
 
         return {
             ...dot,
             p,
             v,
-            c,
         }
     }
 })
@@ -63,16 +58,11 @@ const suckedDots = createDotMapper(state => {
     return dot => {
         const v = scale(50, normalize(subtract(mouse, dot.p)))
         const p = add(dot.p, scale(dt, v))
-        const c = {
-            ...dot.c,
-            h: dot.c.h + 3,
-        }
 
         return {
             ...dot,
             v,
             p,
-            c,
         }
     }
 })
