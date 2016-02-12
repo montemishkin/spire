@@ -4,6 +4,7 @@ import radium from 'radium'
 import {connect} from 'react-redux'
 // local imports
 import styles from './styles'
+import downloadCanvasImage from 'util/downloadCanvasImage'
 import {restart} from 'store/ducks/game'
 import {play, pause} from 'store/ducks/game/isPaused'
 import {set as setDt} from 'store/ducks/game/dt'
@@ -46,13 +47,16 @@ function Controller({
             <Slider
                 {...numDots}
                 name='numDots'
-                onChange={(event) => dispatch(setNumDots(event.target.value))}
+                onChange={event => dispatch(setNumDots(event.target.value))}
             />
             <Slider
                 {...bgAlpha}
                 name='bgAlpha'
-                onChange={(event) => dispatch(setBgAlpha(event.target.value))}
+                onChange={event => dispatch(setBgAlpha(event.target.value))}
             />
+            <Button onClick={downloadCanvasImage}>
+                save
+            </Button>
         </div>
     )
 }
