@@ -1,3 +1,3 @@
 # [spire](http://montemishkin.github.io/spire/)
 
-It's kinda cool.
+An experiment in using redux to manage game state.

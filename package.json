@@ -1,7 +1,7 @@
 {
   "name": "spire",
   "version": "0.0.0",
-  "description": "kinda cool",
+  "description": "An experiment in using redux to manage game state.",
   "author": "Monte Mishkin",
   "private": true,
   "devDependencies": {
