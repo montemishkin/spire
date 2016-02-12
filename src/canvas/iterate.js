@@ -33,10 +33,10 @@ const movedDots = createDotMapper(state => {
 
     return dot => {
         let v = dot.v
-        v = dot.p[0] < 0 || dot.p[0] > width
+        v = dot.p[0] - dot.r < 0 || dot.p[0] + dot.r > width
             ? flipX(v)
             : v
-        v = dot.p[1] < 0 || dot.p[1] > height
+        v = dot.p[1] - dot.r < 0 || dot.p[1] + dot.r > height
             ? flipY(v)
             : v
 
