@@ -6,8 +6,8 @@ import {connect} from 'react-redux'
 import styles from './styles'
 import {restart} from 'store/ducks/game'
 import {play, pause} from 'store/ducks/game/isPaused'
-import {setDT} from 'store/ducks/game/dt'
-import {setNumDots} from 'store/ducks/game/dots/num'
+import {set as setDT} from 'store/ducks/game/dt'
+import {set as setNumDots} from 'store/ducks/game/dots/num'
 import Checkbox from 'components/Checkbox'
 import Slider from 'components/Slider'
 import Button from 'components/Button'
@@ -38,10 +38,7 @@ function Controller({
             />
             <Slider
                 name='dt'
-                min={0}
-                max={2}
-                value={dt}
-                step={0.001}
+                {...dt}
                 onChange={(event) => dispatch(setDT(event.target.value))}
             />
             <Slider

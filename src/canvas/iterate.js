@@ -29,7 +29,7 @@ function createDotMapper(createMapping = () => x => x) {
 const movedDots = createDotMapper(state => {
     const width = state.browser.width
     const height = state.browser.height
-    const dt = state.game.dt
+    const dt = state.game.dt.value
 
     return dot => {
         let v = dot.v
@@ -58,7 +58,7 @@ const movedDots = createDotMapper(state => {
 
 const suckedDots = createDotMapper(state => {
     const mouse = [state.mouse.x, state.mouse.y]
-    const dt = state.game.dt
+    const dt = state.game.dt.value
 
     return dot => {
         const v = scale(50, normalize(subtract(mouse, dot.p)))

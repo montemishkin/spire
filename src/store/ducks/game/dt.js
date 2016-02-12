@@ -1,22 +1,14 @@
-// Action Types
-
-export const SET_DT = 'spire/game/SET_DT'
-
-
-// Action Creators
-
-export function setDT(value) {
-    return {type: SET_DT, value}
-}
+// local imports
+import createRangeDuck from 'util/createRangeDuck'
 
 
-// Reducer
+const duck = createRangeDuck({
+    prefix: 'spire/game',
+    min: 0,
+    max: 2,
+    step: 0.001,
+    value: 0.1,
+})
 
-export default (state = 0.1, action) => {
-    switch (action.type) {
-        case SET_DT:
-            return action.value
-        default:
-            return state
-    }
-}
+export const set = duck.set
+export default duck.reducer
