@@ -25,6 +25,7 @@ export function randomizeDots() {
                 v: [random(-30, 30), random(-30, 30)],
                 r: random(5, 20),
                 c: randomColor(),
+                cV: [random(-5, 5), random(-5, 5), random(-5, 5)],
             })
         }
 

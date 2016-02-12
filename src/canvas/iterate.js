@@ -1,6 +1,7 @@
 // local imports
 import {setDots} from 'store/ducks/game/dots/items'
-import {add, subtract, scale, normalize, flipX, flipY} from 'util/vector2'
+import * as vector2 from 'util/vector2'
+import * as vector3 from 'util/vector3'
 
 
 export default (state, dispatch) => {
@@ -34,18 +35,27 @@ const movedDots = createDotMapper(state => {
     return dot => {
         let v = dot.v
         v = dot.p[0] - dot.r < 0 || dot.p[0] + dot.r > width
-            ? flipX(v)
+            ? vector2.flipX(v)
             : v
         v = dot.p[1] - dot.r < 0 || dot.p[1] + dot.r > height
-            ? flipY(v)
+            ? vector2.flipY(v)
             : v
 
-        const p = add(dot.p, scale(dt, v))
+        const p = vector2.add(dot.p, vector2.scale(dt, v))
+
+        let cV = dot.cV
+        cV = dot.c[0] < 0 || dot.c[0] > 100 ? vector3.flipX(cV) : cV
+        cV = dot.c[1] < 0 || dot.c[1] > 100 ? vector3.flipY(cV) : cV
+        cV = dot.c[2] < 0 || dot.c[2] > 100 ? vector3.flipZ(cV) : cV
+
+        const c = vector3.add(dot.c, vector3.scale(dt, cV))
 
         return {
             ...dot,
             p,
             v,
+            c,
+            cV,
         }
     }
 })
@@ -56,13 +66,24 @@ const suckedDots = createDotMapper(state => {
     const dt = state.game.dt.value
 
     return dot => {
-        const v = scale(50, normalize(subtract(mouse, dot.p)))
-        const p = add(dot.p, scale(dt, v))
+        const v = vector2.scale(50, vector2.normalize(
+            vector2.subtract(mouse, dot.p)
+        ))
+        const p = vector2.add(dot.p, vector2.scale(dt, v))
+
+        let cV = dot.cV
+        cV = dot.c[0] < 0 || dot.c[0] > 100 ? vector3.flipX(cV) : cV
+        cV = dot.c[1] < 0 || dot.c[1] > 100 ? vector3.flipY(cV) : cV
+        cV = dot.c[2] < 0 || dot.c[2] > 100 ? vector3.flipZ(cV) : cV
+
+        const c = vector3.add(dot.c, vector3.scale(dt, cV))
 
         return {
             ...dot,
             v,
             p,
+            c,
+            cV,
         }
     }
 })

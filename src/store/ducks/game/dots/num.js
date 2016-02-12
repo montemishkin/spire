@@ -7,7 +7,7 @@ const duck = createRangeDuck({
     min: 0,
     max: 1000,
     step: 1,
-    value: 200,
+    value: 10,
 })
 
 export const set = duck.set
