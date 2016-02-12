@@ -1,7 +1,7 @@
 // Action Types
 
-export const PLAY = 'spire/game/PLAY'
-export const PAUSE = 'spire/game/PAUSE'
+const PLAY = 'spire/game/PLAY'
+const PAUSE = 'spire/game/PAUSE'
 
 
 // Action Creators

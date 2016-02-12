@@ -3,7 +3,7 @@ import createRangeDuck from 'util/createRangeDuck'
 
 
 const duck = createRangeDuck({
-    prefix: 'spire/game',
+    prefix: 'spire/game/dt',
     min: 0,
     max: 2,
     step: 0.001,

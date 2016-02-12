@@ -38,13 +38,8 @@ export default function createRangeDuck({
     }
 
 
-    // return the duck
     return {
-        // action types
-        SET,
-        // action creators
         set,
-        // reducer
         reducer,
     }
 }

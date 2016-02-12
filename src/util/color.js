@@ -11,6 +11,6 @@ export function randomColor() {
 }
 
 
-export function toCSS(color) {
-    return `hsl(${color.h},${color.s}%,${color.l}%)`
+export function toCSS(color, alpha = 1) {
+    return `hsla(${color.h},${color.s}%,${color.l}%,${alpha})`
 }

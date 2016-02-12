@@ -4,13 +4,13 @@ import {randomColor} from 'util/color'
 
 // Action Types
 
-export const SET_BACKGROUND = 'spire/game/SET_BACKGROUND'
+const SET = 'spire/game/background/color/SET'
 
 
 // Action Creators
 
-export function replaceDots(value) {
-    return {type: SET_BACKGROUND, value}
+export function set(value) {
+    return {type: SET, value}
 }
 
 
@@ -18,7 +18,7 @@ export function replaceDots(value) {
 
 export default (state = randomColor(), action) => {
     switch (action.type) {
-        case SET_BACKGROUND:
+        case SET:
             return action.value
         default:
             return state

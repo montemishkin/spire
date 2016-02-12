@@ -6,8 +6,9 @@ import {connect} from 'react-redux'
 import styles from './styles'
 import {restart} from 'store/ducks/game'
 import {play, pause} from 'store/ducks/game/isPaused'
-import {set as setDT} from 'store/ducks/game/dt'
+import {set as setDt} from 'store/ducks/game/dt'
 import {set as setNumDots} from 'store/ducks/game/dots/num'
+import {set as setBgAlpha} from 'store/ducks/game/background/alpha'
 import Checkbox from 'components/Checkbox'
 import Slider from 'components/Slider'
 import Button from 'components/Button'
@@ -17,6 +18,7 @@ function Controller({
     isPaused,
     dt,
     numDots,
+    bgAlpha,
     dispatch,
     style,
     ...unusedProps,
@@ -39,12 +41,17 @@ function Controller({
             <Slider
                 name='dt'
                 {...dt}
-                onChange={(event) => dispatch(setDT(event.target.value))}
+                onChange={(event) => dispatch(setDt(event.target.value))}
             />
             <Slider
                 {...numDots}
                 name='numDots'
                 onChange={(event) => dispatch(setNumDots(event.target.value))}
+            />
+            <Slider
+                {...bgAlpha}
+                name='bgAlpha'
+                onChange={(event) => dispatch(setBgAlpha(event.target.value))}
             />
         </div>
     )
@@ -56,6 +63,7 @@ function mapStateToProps(state) {
         isPaused: state.game.isPaused,
         dt: state.game.dt,
         numDots: state.game.dots.num,
+        bgAlpha: state.game.background.alpha,
     }
 }
 

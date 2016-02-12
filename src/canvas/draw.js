@@ -9,10 +9,11 @@ export default (state, context) => {
 
 
 function clearBackground({game, browser}, context) {
-    const {background} = game
+    const bgColor = game.background.color
+    const bgAlpha = game.background.alpha.value
     const {width, height} = browser
 
-    context.fillStyle = toCSS(background)
+    context.fillStyle = toCSS(bgColor, bgAlpha)
     context.fillRect(0, 0, width, height)
 }
 

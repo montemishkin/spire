@@ -1,6 +1,6 @@
 // Action Types
 
-export const SET_DOTS = 'spire/game/dots/SET_DOTS'
+const SET_DOTS = 'spire/game/dots/items/SET'
 
 
 // Action Creators
