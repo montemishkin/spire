@@ -2,13 +2,13 @@
 import React from 'react'
 
 
-function Checkbox({name, value, onChange, ...unusedProps}) {
+function Checkbox({name, checked, onChange, ...unusedProps}) {
     return (
         <label {...unusedProps}>
             {name}
             <input
                 type='checkbox'
-                value={value}
+                checked={checked}
                 onChange={onChange}
             />
         </label>

@@ -30,13 +30,15 @@ const flowedDots = createDotMapper(state => {
     const dt = state.game.dt.value
     const positionField = positionFields[state.game.positionField.value](state)
     const colorField = colorFields[state.game.colorField.value](state)
+    const shouldModPosition = state.game.shouldModPosition
 
     return dot => {
         const v = positionField(dot)
-        const p = vector2.mod(
-            vector2.add(dot.p, vector2.scale(dt, v)),
-            [width, height]
-        )
+
+        let p = vector2.add(dot.p, vector2.scale(dt, v))
+        if (shouldModPosition) {
+            p = vector2.mod(p, [width, height])
+        }
 
         const cV = colorField(dot)
         const c = vector3.add(dot.c, vector3.scale(dt, cV))

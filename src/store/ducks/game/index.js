@@ -2,6 +2,7 @@
 import {combineReducers} from 'redux'
 // local imports
 import isPaused from './isPaused'
+import shouldModPosition from './shouldModPosition'
 import dt from './dt'
 import background from './background'
 import dots, {randomizeDots} from './dots'
@@ -22,6 +23,7 @@ export function restart() {
 
 export default combineReducers({
     isPaused,
+    shouldModPosition,
     dt,
     background,
     dots,

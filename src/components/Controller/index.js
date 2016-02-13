@@ -7,6 +7,7 @@ import styles from './styles'
 import downloadCanvasImage from 'util/downloadCanvasImage'
 import {restart} from 'store/ducks/game'
 import {set as setIsPaused} from 'store/ducks/game/isPaused'
+import {set as setShouldModPosition} from 'store/ducks/game/shouldModPosition'
 import {set as setDt} from 'store/ducks/game/dt'
 import {set as setNumDots} from 'store/ducks/game/dots/num'
 import {set as setBgAlpha} from 'store/ducks/game/background/alpha'
@@ -19,6 +20,7 @@ import Button from 'components/Button'
 
 function Controller({
     isPaused,
+    shouldModPosition,
     dt,
     numDots,
     bgAlpha,
@@ -40,8 +42,13 @@ function Controller({
             </Button>
             <Checkbox
                 name='isPaused'
-                value={isPaused}
+                checked={isPaused}
                 onChange={() => dispatch(setIsPaused(!isPaused))}
+            />
+            <Checkbox
+                name='shouldModPosition'
+                checked={shouldModPosition}
+                onChange={() => dispatch(setShouldModPosition(!shouldModPosition))}
             />
             <Slider
                 name='dt'
@@ -79,6 +86,7 @@ function Controller({
 function mapStateToProps(state) {
     return {
         isPaused: state.game.isPaused,
+        shouldModPosition: state.game.shouldModPosition,
         dt: state.game.dt,
         numDots: state.game.dots.num,
         bgAlpha: state.game.background.alpha,
