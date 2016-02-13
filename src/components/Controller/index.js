@@ -10,6 +10,8 @@ import {play, pause} from 'store/ducks/game/isPaused'
 import {set as setDt} from 'store/ducks/game/dt'
 import {set as setNumDots} from 'store/ducks/game/dots/num'
 import {set as setBgAlpha} from 'store/ducks/game/background/alpha'
+import {set as setColorField} from 'store/ducks/game/colorField'
+import {set as setPositionField} from 'store/ducks/game/positionField'
 import Checkbox from 'components/Checkbox'
 import Slider from 'components/Slider'
 import Button from 'components/Button'
@@ -20,6 +22,8 @@ function Controller({
     dt,
     numDots,
     bgAlpha,
+    colorField,
+    positionField,
     dispatch,
     style,
     ...unusedProps,
@@ -54,6 +58,16 @@ function Controller({
                 name='bgAlpha'
                 onChange={event => dispatch(setBgAlpha(event.target.value))}
             />
+            <Slider
+                {...colorField}
+                name='colorField'
+                onChange={event => dispatch(setColorField(event.target.value))}
+            />
+            <Slider
+                {...positionField}
+                name='positionField'
+                onChange={event => dispatch(setPositionField(event.target.value))}
+            />
             <Button onClick={downloadCanvasImage}>
                 save
             </Button>
@@ -68,6 +82,8 @@ function mapStateToProps(state) {
         dt: state.game.dt,
         numDots: state.game.dots.num,
         bgAlpha: state.game.background.alpha,
+        colorField: state.game.colorField,
+        positionField: state.game.positionField,
     }
 }
 
