@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 import styles from './styles'
 import downloadCanvasImage from 'util/downloadCanvasImage'
 import {restart} from 'store/ducks/game'
-import {play, pause} from 'store/ducks/game/isPaused'
+import {set as setIsPaused} from 'store/ducks/game/isPaused'
 import {set as setDt} from 'store/ducks/game/dt'
 import {set as setNumDots} from 'store/ducks/game/dots/num'
 import {set as setBgAlpha} from 'store/ducks/game/background/alpha'
@@ -41,12 +41,12 @@ function Controller({
             <Checkbox
                 name='isPaused'
                 value={isPaused}
-                onChange={() => dispatch(isPaused ? play() : pause())}
+                onChange={() => dispatch(setIsPaused(!isPaused))}
             />
             <Slider
                 name='dt'
                 {...dt}
-                onChange={(event) => dispatch(setDt(event.target.value))}
+                onChange={event => dispatch(setDt(event.target.value))}
             />
             <Slider
                 {...numDots}
