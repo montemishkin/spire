@@ -21,7 +21,7 @@ export function randomizeDots() {
 
         for (let i = 0; i < maxNumDots; i++) {
             dots.push({
-                p: [width / 2, height / 2],
+                p: [random(0, width), random(0, height)],
                 v: [random(-30, 30), random(-30, 30)],
                 r: random(5, 20),
                 c: randomColor(),
