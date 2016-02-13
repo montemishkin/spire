@@ -1,3 +1,7 @@
+// local imports
+import modScalar from 'util/mod'
+
+
 export function dot([x1, y1], [x2, y2]) {
     return (x1 * x2) + (y1 * y2)
 }
@@ -34,6 +38,11 @@ export function add([x1, y1], [x2, y2]) {
 
 export function subtract([x1, y1], [x2, y2]) {
     return [x1 - x2, y1 - y2]
+}
+
+
+export function mod([x1, y1], [x2, y2]) {
+    return [modScalar(x1, x2), modScalar(y1, y2)]
 }
 
 

@@ -78,6 +78,16 @@ describe('vector2', function () {
     })
 
 
+    describe('mod', function () {
+        it('seems to work fine', function () {
+            const actual = vector2.mod([15, 7.5], [4, 6])
+            const expected = [3, 1.5]
+
+            assert.deepEqual(actual, expected)
+        })
+    })
+
+
     describe('operate', function () {
         it('works fine with identity matrix', function () {
             const actual = vector2.operate([[1, 0], [0, 1]], [4.4, -235])
