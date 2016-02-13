@@ -28,17 +28,17 @@ const flowedDots = createDotMapper(state => {
     const width = state.browser.width
     const height = state.browser.height
     const dt = state.game.dt.value
-    const colorFieldIndex = state.game.colorField.value
-    const positionFieldIndex = state.game.positionField.value
+    const positionField = positionFields[state.game.positionField.value](state)
+    const colorField = colorFields[state.game.colorField.value](state)
 
     return dot => {
-        const v = positionFields[positionFieldIndex](state, dot)
+        const v = positionField(dot)
         const p = vector2.mod(
             vector2.add(dot.p, vector2.scale(dt, v)),
             [width, height]
         )
 
-        const cV = colorFields[colorFieldIndex](state, dot)
+        const cV = colorField(dot)
         const c = vector3.add(dot.c, vector3.scale(dt, cV))
 
         return {

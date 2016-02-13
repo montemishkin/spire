@@ -4,7 +4,7 @@ import * as vector3 from 'util/vector3'
 
 export default [
     // bounce off walls
-    (state, dot) => {
+    () => dot => {
         const [r, g, b] = dot.c
 
         let cV = dot.cV
