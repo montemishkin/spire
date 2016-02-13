@@ -3739,9 +3739,8 @@
       "resolved": "https://registry.npmjs.org/redux-logger/-/redux-logger-2.5.0.tgz"
     },
     "redux-mouse": {
-      "version": "0.0.0",
-      "from": "redux-mouse@*",
-      "resolved": "https://registry.npmjs.org/redux-mouse/-/redux-mouse-0.0.0.tgz",
+      "version": "0.0.1",
+      "from": "redux-mouse@latest",
       "dependencies": {
         "lodash": {
           "version": "4.3.0",

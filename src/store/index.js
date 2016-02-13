@@ -1,7 +1,7 @@
 // third party imports
 import {createStore as create_store, applyMiddleware, compose} from 'redux'
 import {responsiveStoreEnhancer} from 'redux-responsive'
-import {mouseStoreEnhancer} from 'redux-mouse'
+import {createMouseStoreEnhancer} from 'redux-mouse'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 // local imports
@@ -25,7 +25,9 @@ export function createStore(initialData) {
         reducer,
         initialData,
         compose(
-            mouseStoreEnhancer,
+            createMouseStoreEnhancer({
+                target: document.getElementById('canvas'),
+            }),
             responsiveStoreEnhancer,
             applyMiddleware(...middlewares)
         )
