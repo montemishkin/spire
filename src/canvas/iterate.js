@@ -1,5 +1,6 @@
 // local imports
 import {setDots} from 'store/ducks/game/dots/items'
+import random from 'util/random'
 import * as vector2 from 'util/vector2'
 import * as vector3 from 'util/vector3'
 import positionFields from 'canvas/positionFields'
@@ -31,6 +32,7 @@ const flowedDots = createDotMapper(state => {
     const positionField = positionFields[state.game.positionField.value](state)
     const colorField = colorFields[state.game.colorField.value](state)
     const shouldModPosition = state.game.shouldModPosition
+    const shouldRandomizePosition = state.game.shouldRandomizePosition
 
     return dot => {
         const v = positionField(dot)
@@ -38,6 +40,9 @@ const flowedDots = createDotMapper(state => {
         let p = vector2.add(dot.p, vector2.scale(dt, v))
         if (shouldModPosition) {
             p = vector2.mod(p, [width, height])
+        }
+        if (shouldRandomizePosition && !vector2.isWithin(p, [0, 0], [width, height])) {
+            p = [random(0, width), random(0, height)]
         }
 
         const cV = colorField(dot)

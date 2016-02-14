@@ -8,6 +8,7 @@ import downloadCanvasImage from 'util/downloadCanvasImage'
 import {restart} from 'store/ducks/game'
 import {set as setIsPaused} from 'store/ducks/game/isPaused'
 import {set as setShouldModPosition} from 'store/ducks/game/shouldModPosition'
+import {set as setShouldRandomizePosition} from 'store/ducks/game/shouldRandomizePosition'
 import {set as setDt} from 'store/ducks/game/dt'
 import {set as setNumDots} from 'store/ducks/game/dots/num'
 import {set as setBgAlpha} from 'store/ducks/game/background/alpha'
@@ -21,6 +22,7 @@ import Button from 'components/Button'
 function Controller({
     isPaused,
     shouldModPosition,
+    shouldRandomizePosition,
     dt,
     numDots,
     bgAlpha,
@@ -49,6 +51,11 @@ function Controller({
                 name='shouldModPosition'
                 checked={shouldModPosition}
                 onChange={() => dispatch(setShouldModPosition(!shouldModPosition))}
+            />
+            <Checkbox
+                name='shouldRandomizePosition'
+                checked={shouldRandomizePosition}
+                onChange={() => dispatch(setShouldRandomizePosition(!shouldRandomizePosition))}
             />
             <Slider
                 name='dt'
@@ -87,6 +94,7 @@ function mapStateToProps(state) {
     return {
         isPaused: state.game.isPaused,
         shouldModPosition: state.game.shouldModPosition,
+        shouldRandomizePosition: state.game.shouldRandomizePosition,
         dt: state.game.dt,
         numDots: state.game.dots.num,
         bgAlpha: state.game.background.alpha,
