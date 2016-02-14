@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
         (ga.q = ga.q || []).push(arguments)
     };
     ga.l = +new Date;
-    ga('create', 'put property id here', 'auto');
+    ga('create', 'UA-68929870-3', 'auto');
     /* eslint-enable */
 } else {
     /* eslint-disable */

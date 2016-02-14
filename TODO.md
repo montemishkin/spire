@@ -1,4 +1,2 @@
-- put in google analytics property id
-- add link to source on github
 - add pre-commit hook to run production build
 - favicon
