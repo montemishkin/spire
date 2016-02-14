@@ -2,6 +2,16 @@
 import modScalar from 'util/mod'
 
 
+export function isWithin([x, y, z], [xMin, yMin, zMin], [xMax, yMax, zMax]) {
+    return x >= xMin
+        && x <= xMax
+        && y >= yMin
+        && y <= yMax
+        && z >= zMin
+        && z <= zMax
+}
+
+
 export function dot([x1, y1, z1], [x2, y2, z2]) {
     return (x1 * x2) + (y1 * y2) + (z1 * z2)
 }

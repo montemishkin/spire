@@ -8,6 +8,53 @@ const errorMargin = 0.0001
 
 
 describe('vector2', function () {
+    describe('isWithin', function () {
+        it('returns true when vector is within bounds', function () {
+            assert.isTrue(vector2.isWithin(
+                [3, -5],
+                [0, -5.1],
+                [3.01, 0]
+            ))
+        })
+
+
+        it('returns false when vector x is below bounds', function () {
+            assert.isFalse(vector2.isWithin(
+                [3, -5],
+                [3.1, -5.1],
+                [7, 0]
+            ))
+        })
+
+
+        it('returns false when vector x is above bounds', function () {
+            assert.isFalse(vector2.isWithin(
+                [3, -5],
+                [0, -5.1],
+                [2, 0]
+            ))
+        })
+
+
+        it('returns false when vector y is below bounds', function () {
+            assert.isFalse(vector2.isWithin(
+                [3, -5],
+                [0, 0],
+                [7, 2]
+            ))
+        })
+
+
+        it('returns false when vector y is above bounds', function () {
+            assert.isFalse(vector2.isWithin(
+                [3, -5],
+                [0, -7],
+                [7, -6]
+            ))
+        })
+    })
+
+
     describe('dot', function () {
         it('seems to work fine', function () {
             const actual = vector2.dot([3, 5], [-1, 2])
